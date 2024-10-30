@@ -30,5 +30,11 @@ def adder(a: int, b: int) -> int:
 # Testing the multiplier function
 if __name__ == "__main__":
     print(multiplier(3, 4))  # Output: 12
+    # | 8 | 4 | 2 | 1 |
+    # |---|---|---|---|
+    # | 0 | 0 | 1 | 1 | -> 3
+    # | 0 | 1 | 0 | 0 | -> 4
+    # |---|---|---|---|
+    # shift to the left till b = 0
     print(multiplier(0, 5))  # Output: 0
     print(multiplier(7, 7))  # Output: 49
