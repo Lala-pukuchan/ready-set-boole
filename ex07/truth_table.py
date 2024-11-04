@@ -75,6 +75,7 @@ def print_truth_table(formula: str):
     print("-" * len(header))
 
     # Evaluate the formula for each combination of variable values
+    results = []
     for combo in combinations:
         values = dict(zip(variables, combo))
         result = eval_formula(formula, values)
@@ -87,13 +88,27 @@ def print_truth_table(formula: str):
             + ("1" if result else "0")
         )
         print(row)
-    print("==================")
+        results.append(result)
+    return results
+
+
+def all_zeroes(results: list) -> bool:
+    return all(result == False for result in results)
+
+
+def sat(formular: str) -> bool:
+    return not all_zeroes(print_truth_table(formular))
 
 
 # Testing the print_truth_table function
 if __name__ == "__main__":
-    print_truth_table("AB&C|")  # (A AND B) OR C
-    print_truth_table("AB|C|")  # (A OR B) OR C
-    print_truth_table("AB^C|")  # (A XOR B) OR C
-    print_truth_table("AB>")  # (A => B)
-    print_truth_table("AB=")  # (A = B)
+    print(sat("AB|"))
+
+    print("==================")
+    print(sat("AB&"))
+
+    print("==================")
+    print(sat("AA!&"))
+
+    print("==================")
+    print(sat("AA^"))
