@@ -11,6 +11,7 @@ if __name__ == "__main__":
     # !(A AND B)
     # !A OR !B
     # Expected output: A!B!|
+    #--------------------------------
     t2 = Tree("AB|!")
     #    !
     #  |
@@ -20,6 +21,7 @@ if __name__ == "__main__":
     # !(A OR B)
     # !A AND !B
     # Expected output: A!B!&
+    #--------------------------------
     t3 = Tree("AB>")
     #    >
     #A   B
@@ -28,6 +30,7 @@ if __name__ == "__main__":
     # A => B
     # !A OR B
     # Expected output: A!B|
+    #--------------------------------
     t4 = Tree("AB=")
     #    =
     #A   B
@@ -36,6 +39,7 @@ if __name__ == "__main__":
     # A AND B is true/false
     # (A AND B) OR (!A AND !B)
     # Expected output: AB&A!B!&|
+    #--------------------------------
     t5 = Tree("AB|C&!")
     #    !
     #  &
